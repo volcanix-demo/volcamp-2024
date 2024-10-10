@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - .github/workflows/graalvm-macos.yaml
+  workflow_dispatch:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-macos
   cancel-in-progress: true

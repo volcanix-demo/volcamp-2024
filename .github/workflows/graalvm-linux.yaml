@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - .github/workflows/graalvm-linux.yaml
+  workflow_dispatch:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-linux
   cancel-in-progress: true
