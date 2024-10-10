@@ -1,0 +1,21 @@
+apiVersion: autoscaling.x-k8s.io/v1alpha1
+kind: StartupCPUBoost
+metadata:
+  name: boost
+  namespace: remi
+selector:
+  matchExpressions:
+  - key: app.kubernetes.io/name
+    operator: In
+    values:
+      - "my-app"
+spec:
+  resourcePolicy:
+    containerPolicies:
+    - containerName: my-container
+      fixedResources:
+        requests: 1000m
+  durationPolicy:
+    fixedDuration:
+      unit: Seconds
+      value: 120
